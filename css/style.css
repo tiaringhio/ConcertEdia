@@ -1,7 +1,8 @@
-html, body{
+html,
+body {
     padding: 0px;
     margin: 0px;
-    background: white;   
+    background: white;
 }
 
 .footer {
@@ -11,19 +12,19 @@ html, body{
     position: relative;
 }
 
-.footer .footer-content{
+.footer .footer-content {
     border: 1px solid red;
     height: 350px;
     display: flex;
 }
 
-.footer .footer-content .footer-section{
+.footer .footer-content .footer-section {
     flex: 1;
-    padding:25px;
+    padding: 25px;
     border: 1px solid white;
 }
 
-.footer .footer-bottom{
+.footer .footer-bottom {
     background: #343a40;
     color: #686868;
     height: 50px;
@@ -32,9 +33,10 @@ html, body{
     position: absolute;
     bottom: 0px;
     left: 0px;
-    padding-top:20px;
+    padding-top: 20px;
 }
 
-p,h1{
+p,
+h1 {
     color: black;
 }

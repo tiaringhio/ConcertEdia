@@ -13,6 +13,8 @@
   
   - [Table of Contents](#table-of-contents)
   - [About The Project](#about-the-project)
+  - [License](#license)
+  - [Contributors](#contributors)
 
 ## About The Project
 
