@@ -12,30 +12,19 @@ require_once 'includes/header.php';
             $path = "./immagini/Band/";
             $resultset = mysqli_query($conn, $sql);
             while ($record = mysqli_fetch_assoc($resultset)) {
-            ?>
-                <?php
-                $i = 0;
-                foreach ($resultset as $row) {
-                    $actives = '';
-                    if ($i == 0) {
-                        $actives = 'active';
-                    }
-                    $i++;
-                } ?>
 
-                <?php
                 $i = 0;
                 foreach ($resultset as $row) {
                     $actives = '';
                     if ($i == 0) {
                         $actives = 'active';
                     }
-                ?>
+            ?>
                     <div class="card" style="width: 18rem;">
                         <img class="card-img-top" src="<?= $path . $row['Foto']; ?>" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title"><?= $row['Nome'] ?> </h5>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="#" class="btn btn-dark">Portami alla band!</a>
                         </div>
                     </div>
             <?php $i++;
