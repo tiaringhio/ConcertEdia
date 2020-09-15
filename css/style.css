@@ -36,6 +36,11 @@ body {
     padding-top: 20px;
 }
 
+.card-img-top{
+
+    height: 210px;
+}
+
 p,
 h1 {
     color: black;

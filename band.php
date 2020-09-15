@@ -1,18 +1,49 @@
 <?php
- require_once 'includes/header.php';
+require_once 'includes/header.php';
 ?>
 
-<?php
-    $sql = "SELECT * from band";
-    $query = mysqli_query($conn, $sql);
-    $resultCheck = mysqli_num_rows($query);
-    if($resultCheck > 0) {
-        while($row = mysqli_fetch_assoc($query)) { 
-            ?> <h1> <?php echo $row['Nome'] . "<br>" ;?> </h1> <?php
-        }
-    }
-?>
+<body>
 
-<?php
-    require_once 'includes/footer.php';
-?>
+    <div class="container-fluid">
+        <div class="row justify-content-center mb-2">
+            <?php
+            $sql = "SELECT * FROM band";
+            $count = 0;
+            $path = "./immagini/Band/";
+            $resultset = mysqli_query($conn, $sql);
+            while ($record = mysqli_fetch_assoc($resultset)) {
+            ?>
+                <?php
+                $i = 0;
+                foreach ($resultset as $row) {
+                    $actives = '';
+                    if ($i == 0) {
+                        $actives = 'active';
+                    }
+                    $i++;
+                } ?>
+
+                <?php
+                $i = 0;
+                foreach ($resultset as $row) {
+                    $actives = '';
+                    if ($i == 0) {
+                        $actives = 'active';
+                    }
+                ?>
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="<?= $path . $row['Foto']; ?>" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $row['Nome'] ?> </h5>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+            <?php $i++;
+                }
+            } ?>
+
+
+
+            <?php
+            require_once 'includes/footer.php';
+            ?>
