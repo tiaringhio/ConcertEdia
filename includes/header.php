@@ -13,7 +13,7 @@ include_once("db/db_connect.php");
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-  <title>Concert</title>
+  <title>ConcertEdia</title>
   <link href="./css/style.css" rel="stylesheet" type="text/css">
   <link rel="icon" href=".\immagini\favicon.ico" type="image/ico" sizes="16x16">
 
