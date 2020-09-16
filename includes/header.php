@@ -10,8 +10,10 @@ include_once("db/db_connect.php");
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
   <!-- Latest compiled and minified JavaScript -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="js/jquery-1.7.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
   <meta http-equiv="content-type" content="text/html;charset=utf-8" />
   <title>ConcertEdia</title>
   <link href="./css/style.css" rel="stylesheet" type="text/css">

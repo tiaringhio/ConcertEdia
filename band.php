@@ -23,8 +23,13 @@ require_once 'includes/header.php';
                     <div class="card" style="width: 18rem;">
                         <img class="card-img-top" src="<?= $path . $row['Foto']; ?>" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title"><?= $row['Nome'] ?> </h5>
-                            <a href="#" class="btn btn-dark">Portami alla band!</a>
+                            <h5 class="card-title"><?= $row['Nome'];
+                                                    $Band = $row['Nome']; ?> </h5>
+
+                            <form method="get" action="SingolaBand.php">
+                                <input type="hidden" name="varname" value="<?php echo $Band ?>">
+                                <button class="btn btn-dark" type="submit">Portami alla Band!</button>
+                            </form>
                         </div>
                     </div>
             <?php $i++;

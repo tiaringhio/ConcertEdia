@@ -12,7 +12,7 @@ require_once 'includes/header.php';
             $resultset = mysqli_query($conn, $sql);
             while ($record = mysqli_fetch_assoc($resultset)) {
             ?>
-                <div id="concert-carousel" class="carousel slide" data-ride="carousel">
+                <div id="concert-carousel" class="carousel slide" data-ride="carousel"data-interval="false">
                     <ul class="carousel-indicators">
                         <?php
                         $i = 0;

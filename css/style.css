@@ -40,8 +40,13 @@ body {
     height: 210px;
 }
 
-
-p,
-h1 {
+#title {
     color: black;
+    text-align: center;
+    text-transform: uppercase;
 }
+
+
+.img-container {
+    text-align: center;
+  }
