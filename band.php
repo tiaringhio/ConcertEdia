@@ -20,7 +20,7 @@ require_once 'includes/header.php';
                         $actives = 'active';
                     }
             ?>
-                    <div class="card" style="width: 18rem;">
+                    <div class="card" style="width: 19rem;" >
                         <img class="card-img-top" src="<?= $path . $row['Foto']; ?>" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title"><?= $row['Nome'];
