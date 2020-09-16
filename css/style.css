@@ -46,6 +46,10 @@ body {
     text-transform: uppercase;
 }
 
+.carousel {
+    width:640px;
+    height:360px;
+  }
 
 .img-container {
     text-align: center;
