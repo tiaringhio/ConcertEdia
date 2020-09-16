@@ -61,6 +61,8 @@ require_once 'includes/header.php';
             ?>
         </div>
     </div>
-</body>
+   
+<?php
+    require_once 'includes/footer.php'
+    ?>
 
-</html>

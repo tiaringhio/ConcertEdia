@@ -87,5 +87,8 @@ while ($record = mysqli_fetch_assoc($resultset)) {
                 </div>
             </div>
         </div>
-    </body>
+    
 <?php } ?>
+<?php
+    require_once 'includes/footer.php'
+    ?>
