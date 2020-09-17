@@ -3,16 +3,16 @@ require_once 'includes/header.php';
 ?>
 
 <body>
-    <div class="container-fluid">
+    <div class="carousel carousel-fade">
         <div class="row justify-content-center mb-2">
             <?php
             $sql = "SELECT * FROM concerti";
             $count = 0;
-            $path = "./immagini/concerti/";
+            $path = "./immagini/Concerti/";
             $resultset = mysqli_query($conn, $sql);
             while ($record = mysqli_fetch_assoc($resultset)) {
             ?>
-                <div id="concert-carousel" class="carousel slide" data-ride="carousel"data-interval="false">
+                <div id="concert-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
                     <ul class="carousel-indicators">
                         <?php
                         $i = 0;
@@ -39,9 +39,10 @@ require_once 'includes/header.php';
                         ?>
                             <div class="carousel-item <?= $actives; ?>">
                                 <img id="image-carousel" src="<?= $path . $row['Immagine']; ?>" width="100%" object-fit="cover">
+                                <div class="black-overlay"></div>
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h2><?= $row['Titolo']; ?></h2>
-                                    <p><?= $row['Data']; ?></p>
+                                    <h1 id="titolo-carousel"><?= $row['Titolo']; ?></h1>
+                                    <p id="paragrafo-carousel"><?= $row['Data']; ?></p>
                                 </div>
                             </div>
                         <?php $i++;
@@ -61,8 +62,7 @@ require_once 'includes/header.php';
             ?>
         </div>
     </div>
-   
-<?php
+
+    <?php
     require_once 'includes/footer.php'
     ?>
-

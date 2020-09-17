@@ -7,7 +7,7 @@
     <div class="footer-content">
         <div class="footer-section about">
             <h1 class="logo-text"><span>Concert</span>Edia</h1>
-            <p>
+            <p class="paragraph-text">
                 ConcertEdia è il sito che ti permette di fare un tuffo nella bella musica del passato.
                 Cerca il tuo concerto preferito, guarda il video e immergiti nella descrizione.
             </p>
@@ -20,7 +20,7 @@
         </div>
         <div class="footer-section link">
             <h1 class="logo-text"><span>Chi</span> Siamo</h1>
-            <p>
+            <p class="paragraph-text">
                 Siamo due studenti dell'Università degli studi di Parma con la passione
                 per la programmazione e per la buona musica.
             </p>

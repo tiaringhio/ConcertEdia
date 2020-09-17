@@ -10,8 +10,9 @@ include_once("db/db_connect.php");
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
   <!-- Latest compiled and minified JavaScript -->
-
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Roboto font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <script src="js/jquery-1.7.1.min.js"></script>
   <script src="js/bootstrap.js"></script>
   <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -23,9 +24,10 @@ include_once("db/db_connect.php");
 </head>
 
 <!-- NAVBAR-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href=".\index.php">
     <img src=".\immagini\guitar.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    ConcertEdia
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
