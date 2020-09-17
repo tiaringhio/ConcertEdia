@@ -19,15 +19,17 @@ require_once 'includes/header.php';
                         $actives = 'active';
                     }
             ?>
-                    <div class="card pb-3 mt-3 mb-3  text-center" style="width: 19rem;">
-                        <img class="card-img-top" src="<?= $path . $row['Foto']; ?>" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $row['Nome'];
-                                                    $Band = $row['Nome']; ?> </h5>
+                    <div class="card bg-white text-black text-center" style="width: 19rem;">
+                    <?php
+                                                    $Band = $row['Nome']; ?> 
+                        <img class="card-img-top" src="<?= $path . $row['Foto']; ?>" alt="Card image cap"><span><?php echo $Band ?></span>
+                        <div class="card-img-overlay">
+                            
 
-                            <form method="get" action="SingolaBand.php">
+                            <form method="get" id="form-band" action="SingolaBand.php">
                                 <input type="hidden" name="varname" value="<?php echo $Band ?>">
-                                <button class="btn btn-dark" type="submit">Portami alla Band!</button>
+                                 
+                                <button class="btn btn-hidden stretched-link" type="submit" id="titlecard">  </button>
                             </form>
                         </div>
                     </div>

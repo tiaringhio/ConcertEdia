@@ -45,8 +45,8 @@ require_once 'includes/header.php';
                                     <div class="carousel-caption d-none d-md-block">
                                         <form id="form-concerto" method="get" action="concerto.php">
                                             <input type="hidden" name="varname" value="<?php echo $Concerto ?>">
-                                            <h1 class="titolo-carousel" href="#" onclick="document.getElementById('form-concerto').submit();"><?= $row['Titolo']; ?></h1>
-                                            <!-- <button class="btn btn-light" type="submit">Portami al concerto</button> -->
+                                            <button class="btn btn-hidden stretched-link" type="submit" id="titlecard"><h1><?php echo $Concerto ?><h1>  </button>
+                                            
                                             <p id="paragrafo-carousel"><?= $row['Data']; ?></p>
                                         </form>
                                     </div>

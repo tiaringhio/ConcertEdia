@@ -170,3 +170,22 @@ body {
   margin-left: 7px;
   margin-right: 7px;
 }
+
+#titlecard {
+  color: white;
+}
+
+
+div.card span {
+  display: none;
+  position: absolute; 
+  bottom: 0;
+  left: 0;   
+  right: 0;   
+  background: #333;
+  color: #fff;
+}
+
+div.card:hover span {
+  display: block; 
+}
