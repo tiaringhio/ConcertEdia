@@ -74,6 +74,7 @@ require_once 'includes/header.php';
     </div>
     </br>
 </body>
+
 <?php
 require_once 'includes/footer.php'
 ?>

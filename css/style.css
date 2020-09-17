@@ -108,6 +108,17 @@ body {
   font-weight: 400;
 }
 
+.paragraph-large {
+  font-weight: 400;
+  font-size: large;
+  text-align: justify;
+}
+
+.paragraph-medium {
+  font-weight: 400;
+  font-size: medium;
+}
+
 .page-footer {
   z-index: 1;
   -webkit-box-shadow: 0px -10px 30px 0px rgba(163, 163, 163, 1);
@@ -115,10 +126,9 @@ body {
   box-shadow: 0px -10px 30px 0px rgba(163, 163, 163, 1);
 }
 
-
 .page-footer {
   flex: 2;
-  padding: 50px;
+  padding: 25px;
   border: 1px solid white;
 }
 

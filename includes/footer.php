@@ -5,8 +5,8 @@
 
 <footer class="page-footer font-medium teal pt-6">
     <div class="container-fluid text-center text-md-left">
-        <div class="row">
-            <div class="col-md-6 mt-md-0 mt-3">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
                 <h3 class="logo-text">ConcertEdia</h3>
                 <p class="paragraph-text">
                     ConcertEdia è il sito che ti permette di fare un tuffo nella bella musica del passato.
@@ -19,7 +19,7 @@
                     <a href="https://github.com/tiaringhio/Concert"> <i class="fa fa-github"></i></a>
                 </div>
             </div>
-            <div class="col-md-6 mb-md-0 mb-3">
+            <div class="col-md-6">
                 <h3 class="logo-text">Chi siamo</h3>
                 <p class="paragraph-text">
                     Siamo due studenti dell'Università degli studi di Parma con la passione
@@ -35,7 +35,7 @@
         </div>
     </div>
     <br>
-    <div class="footer-copyright text-center py-3">
+    <div class="footer-copyright text-center">
         &copy; ConcertEdia | Designed by Mattia Ricci & Filippo Botti
     </div>
 </footer>
