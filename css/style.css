@@ -95,6 +95,10 @@ body {
   border-radius: 100%;
 }
 
+.titolo-carousel {
+  cursor: pointer;
+}
+
 #paragrafo-carousel {
   color: #f5f5f6;
   font-weight: 300;
