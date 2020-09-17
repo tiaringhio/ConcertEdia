@@ -134,12 +134,17 @@ body {
   flex: 2;
   padding: 25px;
   border: 1px solid white;
+  position: bottom;
+  
 }
 
 .page-footer .footer-copyright {
   font-weight: 300;
   color: #686868;
+  position:bottom;
+  
 }
+
 
 .card-img-top {
   height: 210px;
@@ -189,3 +194,16 @@ div.card span {
 div.card:hover span {
   display: block; 
 }
+
+#profileimg {
+  border-radius: 50%;
+  width: 150px;
+  float:left;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#txtDiv{
+  display: inline-block;
+  }
+ 
