@@ -35,6 +35,7 @@
         </div>
     </div>
     <br>
+    <br>
     <div class="footer-copyright text-center">
         &copy; ConcertEdia | Designed by Mattia Ricci & Filippo Botti
     </div>
