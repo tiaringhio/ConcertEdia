@@ -3,6 +3,11 @@ require_once 'includes/header.php';
 ?>
 
 <body>
+    <div class="container">
+        <div class="row">
+
+        </div>
+    </div>
     <div class="carousel carousel-fade">
         <div class="row justify-content-center mb-2">
             <?php
@@ -33,6 +38,7 @@ require_once 'includes/header.php';
                         $i = 0;
                         foreach ($resultset as $row) {
                             $actives = '';
+                            $Concerto = $row['Titolo'];
                             if ($i == 0) {
                                 $actives = 'active';
                             }
@@ -41,8 +47,12 @@ require_once 'includes/header.php';
                                 <img id="image-carousel" src="<?= $path . $row['Immagine']; ?>" width="100%" object-fit="cover">
                                 <div class="black-overlay"></div>
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h1 id="titolo-carousel"><?= $row['Titolo']; ?></h1>
-                                    <p id="paragrafo-carousel"><?= $row['Data']; ?></p>
+                                    <form method="get" action="concerto.php">
+                                        <input type="hidden" name="varname" value="<?php echo $Concerto ?>">
+                                        <h1 id="titolo-carousel"><?= $row['Titolo']; ?></h1>
+                                        <button class="btn btn-light" type="submit">Portami al concerto</button>
+                                        <p id="paragrafo-carousel"><?= $row['Data']; ?></p>
+                                    </form>
                                 </div>
                             </div>
                         <?php $i++;
@@ -62,7 +72,8 @@ require_once 'includes/header.php';
             ?>
         </div>
     </div>
-
-    <?php
-    require_once 'includes/footer.php'
-    ?>
+    </br>
+</body>
+<?php
+require_once 'includes/footer.php'
+?>

@@ -3,9 +3,7 @@ require_once 'includes/header.php';
 ?>
 
 <?php
-$sql = "SELECT * FROM concerti
-            ORDER BY RAND()
-            LIMIT 1";
+$sql = "SELECT * FROM concerti WHERE Titolo = '" . $_GET['varname'] . "'";
 $resultset = mysqli_query($conn, $sql);
 while ($record = mysqli_fetch_assoc($resultset)) {
 ?>
@@ -39,11 +37,11 @@ while ($record = mysqli_fetch_assoc($resultset)) {
                         <?= $record['Descrizione']; ?>
                     </p>
                 </div>
-                <div class="container">
+                <div class="container mb-4">
                     <div class=“row”>
                         <div class="col-sm-6">
                             <h2>Scaletta</h2>
-                            <ul class="list-group">
+                            <ul class="list-group paragraph-text">
                                 <?php
                                 $concerto = $record['Titolo'];
                                 $scaletta = "SELECT Brano FROM scalette
@@ -56,7 +54,7 @@ while ($record = mysqli_fetch_assoc($resultset)) {
                             </ul>
                         </div>
                         </br>
-                        <div class="col-sm-6 mb-2">
+                        <div class="col-sm-6">
                             <h2>Band</h2>
                             <ul class="list-group">
                                 <?php
@@ -85,10 +83,11 @@ while ($record = mysqli_fetch_assoc($resultset)) {
                         </div>
                     </div>
                 </div>
+                </br>
             </div>
         </div>
-    
+    </body>
 <?php } ?>
 <?php
-    require_once 'includes/footer.php'
-    ?>
+require_once 'includes/footer.php'
+?>
