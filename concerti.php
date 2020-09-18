@@ -2,9 +2,12 @@
 require_once 'includes/header.php';
 ?>
 
+<script src="./js/style.js"></script>
+
+
 <body>
     <div class="container-fluid">
-        <div class="carousel carousel-fade">
+        <div id="concert-carousel" class="carousel carousel-fade">
             <div class="row justify-content-center mb-2">
                 <?php
                 $sql = "SELECT * FROM concerti";
@@ -13,7 +16,7 @@ require_once 'includes/header.php';
                 $resultset = mysqli_query($conn, $sql);
                 while ($record = mysqli_fetch_assoc($resultset)) {
                 ?>
-                    <div id="concert-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <div id="concert-carousel" class="carousel slide" data-ride="carousel">
                         <ul class="carousel-indicators">
                             <?php
                             $i = 0;
@@ -35,6 +38,7 @@ require_once 'includes/header.php';
                             foreach ($resultset as $row) {
                                 $actives = '';
                                 $Concerto = $row['Titolo'];
+                                $Data = date("d M Y", strtotime($row['Data']));
                                 if ($i == 0) {
                                     $actives = 'active';
                                 }
@@ -45,9 +49,11 @@ require_once 'includes/header.php';
                                     <div class="carousel-caption d-none d-md-block">
                                         <form id="form-concerto" method="get" action="concerto.php">
                                             <input type="hidden" name="varname" value="<?php echo $Concerto ?>">
-                                            <button class="btn btn-hidden stretched-link" type="submit" id="titlecard"><h1><?php echo $Concerto ?><h1>  </button>
-                                            
-                                            <p id="paragrafo-carousel"><?= $row['Data']; ?></p>
+                                            <button class="btn btn-hidden stretched-link" type="submit" id="titlecard">
+                                                <h1><?php echo $Concerto ?><h1>
+                                            </button>
+
+                                            <p id="paragrafo-carousel"><?= $Data; ?></p>
                                         </form>
                                     </div>
                                 </div>
@@ -69,6 +75,16 @@ require_once 'includes/header.php';
             </div>
         </div>
     </div>
+    <!-- Scorrimento automatico carousel -->
+    <script>
+        $(document).ready(function() {
+            $('.concert-carousel').carousel({
+                interval: 750,
+                pause: hover,
+                wrap: true
+            });
+        })
+    </script>
 </body>
 
 <?php
