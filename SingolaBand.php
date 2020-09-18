@@ -50,31 +50,31 @@
                     $counterSpace++; ?>
 
                     <nobr style="font-size: 18px; color: black;"> <?php echo $row_musicista['nome']  . " " . $row_musicista['cognome']  ?> </nobr> <?php
-                                                                                                                                                    $queryStrumento = "SELECT distinct strumenti.Nome from strumenti, musicisti, suona
+                    $queryStrumento = "SELECT distinct strumenti.Nome from strumenti, musicisti, suona
                         where musicisti.Nome = suona.Nome_Musicista AND
                         musicisti.Cognome = suona.Cognome_Musicista AND
                         strumenti.Nome = suona.Strumento AND
                         musicisti.Nome = '" . $row_musicista['nome'] . "' and
                         musicisti.Cognome = '" . $row_musicista['cognome'] . "'
                         ";
-                                                                                                                                                    $result_strumento = mysqli_query($conn, $queryStrumento);
-                                                                                                                                                    if (!$result_strumento) {
-                                                                                                                                                        printf("Error: %s\n", mysqli_error($conn));
-                                                                                                                                                        exit();
-                                                                                                                                                    }
-                                                                                                                                                    $concatenazione = " - ";
-                                                                                                                                                    $counterConc = 0;
-                                                                                                                                                    while ($row_strumento = mysqli_fetch_array($result_strumento)) {
-                                                                                                                                                        if ($counterConc != 0) {
-                                                                                                                                                            $concatenazione = " & ";
-                                                                                                                                                        }
+                    $result_strumento = mysqli_query($conn, $queryStrumento);
+                    if (!$result_strumento) {
+                        printf("Error: %s\n", mysqli_error($conn));
+                        exit();
+                    }
+                    $concatenazione = " - ";
+                    $counterConc = 0;
+                    while ($row_strumento = mysqli_fetch_array($result_strumento)) {
+                        if ($counterConc != 0) {
+                            $concatenazione = " & ";
+                        }
 
 
-                                                                                                                                                        echo "<nobr>" . $concatenazione . $row_strumento['Nome']  . "</nobr>";
-                                                                                                                                                        $counterConc++;
-                                                                                                                                                    }
-                                                                                                                                                }
-                                                                                                                                                    ?>
+                        echo "<nobr>" . $concatenazione . $row_strumento['Nome']  . "</nobr>";
+                        $counterConc++;
+                    }
+                }
+                    ?>
             </div>
         </div>
     </div>

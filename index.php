@@ -2,7 +2,11 @@
 require_once 'includes/header.php';
 ?>
 
-<h1> CONCERTEDIA </h1>
+<div class="text-center">
+
+<h3 class="widget-title"> ConcertEdia </h3>
+
+</div>
 
 <div class="row justify-content-center">
 <div class="col-md-6">

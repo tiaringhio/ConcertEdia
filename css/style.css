@@ -201,11 +201,11 @@ div.card:hover span {
   border-radius: 50%;
   width: 150px;
   float:left;
-  display: inline-block;
   vertical-align: top;
 }
 
 #txtDiv{
   display: inline-block;
   }
+ 
  
