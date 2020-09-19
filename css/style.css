@@ -18,6 +18,16 @@ html {
   z-index: 1;
 }
 
+.widget-title {
+  font-size: 5em;
+  font-family: 'Oswald', sans-serif;
+}
+
+.title-main {
+  font-size: 3em;
+  font-family: 'Oswald', sans-serif;
+}
+
 .card-img-top {
   height: 210px;
 }

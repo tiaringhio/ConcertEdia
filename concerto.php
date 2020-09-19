@@ -12,7 +12,7 @@ while ($record = mysqli_fetch_assoc($resultset)) {
         <div class="container-fluid">
             <div class=“row”>
                 <div class="row justify-content-around mt-4">
-                    <h1>
+                    <h1 class="title-main">
                         <?= $record['Titolo']; ?>
                     </h1>
                 </div>

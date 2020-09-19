@@ -13,6 +13,7 @@ include_once("db/db_connect.php");
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <!-- Roboto font -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
   <script src="js/jquery-1.7.1.min.js"></script>
   <script src="js/bootstrap.js"></script>
   <meta http-equiv="content-type" content="text/html;charset=utf-8" />

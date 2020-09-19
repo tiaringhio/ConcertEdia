@@ -49,7 +49,7 @@ require_once 'includes/header.php';
                                         <form id="form-concerto" method="get" action="concerto.php">
                                             <input type="hidden" name="varname" value="<?php echo $Concerto ?>">
                                             <button class="btn btn-hidden stretched-link" type="submit" id="titlecard">
-                                                <h1><?php echo $Concerto ?><h1>
+                                                <h1 class="title-main"><?php echo $Concerto ?><h1>
                                             </button>
 
                                             <p id="paragrafo-carousel"><?= $Data; ?></p>
@@ -73,6 +73,7 @@ require_once 'includes/header.php';
             </div>
         </div>
     </div>
+
     <!-- Scorrimento automatico carousel -->
     <script>
         $(document).ready(function() {

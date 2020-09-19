@@ -8,7 +8,7 @@
     $resultset = mysqli_query($conn, $sql);
     while ($record = mysqli_fetch_assoc($resultset)) { ?>
         <div class="row justify-content-around mt-4">
-            <h1>
+            <h1 class="title-main">
                 <?php echo $_GET['varname']; ?>
             </h1>
         </div>
