@@ -51,7 +51,7 @@ while ($record = mysqli_fetch_assoc($resultset)) {
                             <?php
                             $concerto = $record['Titolo'];
                             $scaletta = "SELECT Brano FROM scalette
-                                        WHERE scalette.Concerto = '" . $concerto . "'";
+                                    WHERE scalette.Concerto = '" . $concerto . "'";
                             $result = mysqli_query($conn, $scaletta);
                             while ($row = mysqli_fetch_array($result)) {
                                 echo "<li>" . $row['Brano'] . "</li>";
@@ -65,17 +65,17 @@ while ($record = mysqli_fetch_assoc($resultset)) {
                         <ul class="list-group">
                             <?php
                             $query_musicista = "SELECT DISTINCT CONCAT (musicisti.nome, ' ', musicisti.cognome) AS Nome_Musicista, Strumenti.nome AS Strumento
-                                FROM musicisti, brani, concerti, band, esecuzioni, scalette, strumenti, suona
-                                WHERE concerti.Titolo = scalette.Concerto AND
-                                scalette.Brano = brani.Nome AND
-                                brani.Nome = esecuzioni.Brano AND
-                                esecuzioni.Band = band.Nome AND
-                                musicisti.Band = band.Nome AND
-                                musicisti.Nome = suona.Nome_Musicista AND
-                                musicisti.Cognome = suona.Cognome_Musicista AND
-                                Strumenti.Nome = suona.Strumento and
-                                concerti.Titolo =  '" . $concerto . "'
-                                            ";
+                            FROM musicisti, brani, concerti, band, esecuzioni, scalette, strumenti, suona
+                            WHERE concerti.Titolo = scalette.Concerto AND
+                            scalette.Brano = brani.Nome AND
+                            brani.Nome = esecuzioni.Brano AND
+                            esecuzioni.Band = band.Nome AND
+                            musicisti.Band = band.Nome AND
+                            musicisti.Nome = suona.Nome_Musicista AND
+                            musicisti.Cognome = suona.Cognome_Musicista AND
+                            Strumenti.Nome = suona.Strumento and
+                            concerti.Titolo =  '" . $concerto . "'
+                                        ";
                             $result_musicista = mysqli_query($conn, $query_musicista);
                             if (!$result_musicista) {
                                 printf("Error: %s\n", mysqli_error($conn));
@@ -89,8 +89,6 @@ while ($record = mysqli_fetch_assoc($resultset)) {
                     </div>
                 </div>
             </div>
-            </br>
-
         </div>
     </body>
 <?php } ?>
