@@ -15,7 +15,7 @@
         <div class="row justify-content-center mt-2 mb-4">
             <h3 class="text-muted"><?php echo $record['Genere']; ?></h3>
         </div>
-        <div class="text-center">
+        <div class="text-center inverted">
             <img src="<?= $path . $record['Foto']; ?>" class="rounded" width="50%" height="auto" object-fit="cover" alt="Responsive image">
         </div>
         <div class="container-fluid mt-4 mb-4">

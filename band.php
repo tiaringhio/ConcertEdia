@@ -19,17 +19,17 @@ require_once 'includes/header.php';
                         $actives = 'active';
                     }
             ?>
-                    <div class="card bg-white text-black text-center" style="width: 19rem;">
-                    <?php
-                                                    $Band = $row['Nome']; ?> 
+                    <div class="card bg-white text-black text-center inverted" style="width: 19rem;">
+                        <?php
+                        $Band = $row['Nome']; ?>
                         <img class="card-img-top" src="<?= $path . $row['Foto']; ?>" alt="Card image cap"><span><?php echo $Band ?></span>
                         <div class="card-img-overlay">
-                            
+
 
                             <form method="get" id="form-band" action="SingolaBand.php">
                                 <input type="hidden" name="varname" value="<?php echo $Band ?>">
-                                 
-                                <button class="btn btn-hidden stretched-link" type="submit" id="titlecard">  </button>
+
+                                <button class="btn btn-hidden stretched-link" type="submit" id="titlecard"> </button>
                             </form>
                         </div>
                     </div>

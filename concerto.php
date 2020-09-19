@@ -21,7 +21,7 @@ while ($record = mysqli_fetch_assoc($resultset)) {
                         <?= $record['Città']; ?>
                     </h3>
                 </div>
-                <div class="row justify-content-center mb-2">
+                <div class="row justify-content-center mb-2 inverted">
                     <?php
                     $url = $record['Link'];
                     preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $url, $matches);
@@ -91,6 +91,8 @@ while ($record = mysqli_fetch_assoc($resultset)) {
             </div>
         </div>
     </body>
+
+
 <?php } ?>
 <?php
 require_once 'includes/footer.php'

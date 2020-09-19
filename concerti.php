@@ -7,7 +7,7 @@ require_once 'includes/header.php';
 
 <body>
     <div class="container-fluid">
-        <div id="concert-carousel" class="carousel carousel-fade">
+        <div id="concert-carousel" class="carousel carousel-fade inverted">
             <div class="row justify-content-center mb-2">
                 <?php
                 $sql = "SELECT * FROM concerti";
@@ -82,6 +82,15 @@ require_once 'includes/header.php';
                 wrap: true
             });
         })
+    </script>
+    <script>
+        document.onkeypress = function(e) {
+            e = e || window.event;
+
+            if (e.keyCode === 13) {
+                document.documentElement.classList.toggle('dark-mode');
+            }
+        }
     </script>
 </body>
 
