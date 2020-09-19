@@ -30,7 +30,6 @@ require_once 'includes/header.php';
                             <?php $i++;
                             } ?>
                         </ul>
-
                         <!-- The slideshow -->
                         <div class="carousel-inner">
                             <?php
@@ -60,7 +59,6 @@ require_once 'includes/header.php';
                             <?php $i++;
                             } ?>
                         </div>
-
                         <!-- Left and right controls -->
                         <a class="carousel-control-prev" href="#concert-carousel" data-slide="prev">
                             <span class="carousel-control-prev-icon"></span>

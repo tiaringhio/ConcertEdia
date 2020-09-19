@@ -7,10 +7,14 @@
     $path = "./immagini/Band/";
     $resultset = mysqli_query($conn, $sql);
     while ($record = mysqli_fetch_assoc($resultset)) { ?>
-        <h1 id="title">
-            <?php echo $_GET['varname']; ?>
-            <small class="text-muted"><?php echo $record['Genere']; ?></small>
-        </h1>
+        <div class="row justify-content-around mt-4">
+            <h1>
+                <?php echo $_GET['varname']; ?>
+            </h1>
+        </div>
+        <div class="row justify-content-center mt-2 mb-4">
+            <h3 class="text-muted"><?php echo $record['Genere']; ?></h3>
+        </div>
         <div class="text-center">
             <img src="<?= $path . $record['Foto']; ?>" class="rounded" width="50%" height="auto" object-fit="cover" alt="Responsive image">
         </div>
