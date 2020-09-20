@@ -1,6 +1,8 @@
 <?php
     require_once 'includes/header.php';
-
+?>
+<body>
+<?php
 
 
 $tosearch = $_GET['varname'];
@@ -36,8 +38,7 @@ if($row>0){
        }
 
     else{
-        echo "error";
-        
+        include_once 'Error.php';
      }
 
      } ?>
