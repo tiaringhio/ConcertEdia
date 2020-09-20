@@ -1,7 +1,7 @@
 <?php require_once 'includes/header.php'
 ?>
 
-<body>
+<body class=" fade-in">
     <?php
     $sql = "SELECT * FROM band where nome = '" . $_GET['varname'] . "'";
     $path = "./immagini/Band/";

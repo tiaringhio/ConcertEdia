@@ -5,7 +5,7 @@ require_once 'includes/header.php';
 <script src="./js/style.js"></script>
 
 
-<body>
+<body class="fade-in">
     <div class="container-fluid">
         <div id="concert-carousel" class="carousel carousel-fade inverted">
             <div class="row justify-content-center mb-2">

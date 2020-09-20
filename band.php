@@ -2,7 +2,7 @@
 require_once 'includes/header.php';
 ?>
 
-<body>
+<body class=" fade-in">
     <div class="container-fluid">
         <div class="row justify-content-center mb-2">
             <?php

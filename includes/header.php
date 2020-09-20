@@ -8,11 +8,11 @@ include_once("db/db_connect.php");
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <!-- Roboto font -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- Oswald font -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
   <script src="js/jquery-1.7.1.min.js"></script>
   <script src="js/bootstrap.js"></script>
@@ -20,8 +20,6 @@ include_once("db/db_connect.php");
   <title>ConcertEdia</title>
   <link href="./css/style.css" rel="stylesheet" type="text/css">
   <link rel="icon" href=".\immagini\favicon.ico" type="image/ico" sizes="16x16">
-
-
 </head>
 
 <!-- NAVBAR-->

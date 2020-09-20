@@ -8,7 +8,7 @@ $resultset = mysqli_query($conn, $sql);
 while ($record = mysqli_fetch_assoc($resultset)) {
 ?>
 
-    <body>
+    <body class="fade-in">
         <div class="container-fluid">
             <div class=“row”>
                 <div class="row justify-content-around mt-4">

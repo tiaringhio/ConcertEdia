@@ -20,7 +20,9 @@
 
 ## About The Project
 
-ConcertEdia is a PHP, CSS and Javascript website that uses SQL queries for showing nice to know informations about past concerts, venues and musicians, including photos, dates and fun facts.
+ConcertEdia is a PHP, Boostrap, CSS and Javascript website that uses SQL queries to show nice to know informations about past concerts, venues and musicians, including photos, dates and fun facts.
+is all you are looking for if you want to relive a historic concert. Let yourself be lulled by the descriptions of the greatest music experts, explore the great stages of the history of music and hear the hits of the past. <br />
+Let's rock! 🎸
 
 ## Database
 

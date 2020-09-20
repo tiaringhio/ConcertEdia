@@ -2,7 +2,7 @@
 require_once 'includes/header.php';
 ?>
 
-<body>
+<body class="fade-in">
     <div class="text-center pt-2 pb-4">
         <h1 class="widget-title"> ConcertEdia </h1>
         <br>
@@ -10,7 +10,7 @@ require_once 'includes/header.php';
             <br> Lasciati cullare dalle descrizioni dei più grandi esperti di musica
             <br> Esplora i grandi palcoscenici della storia della musica
             <br> Ascolta le hit del passato
-            <br>Let's rock!
+            <br>Let's rock!<i class="fas fa-guitar"></i>
         </h4>
     </div>
     <div class="container-fluid">
