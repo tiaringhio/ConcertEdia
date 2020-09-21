@@ -1,0 +1,56 @@
+Table band {
+  Nome varchar [pk, not null]
+  Genere varchar [not null]
+  Foto varchar [not null]
+  Descrizione text [not null]
+}
+
+Table brani {
+  Nome varchar [pk, not null]
+  Genere varchar [not null]
+  Durata time [not null]
+ }
+
+Table concerti {
+  Titolo varchar [pk, not null]
+  Descrizione text
+  Genere varchar [not null]
+  Spettatori integer
+  Link text
+  Citta varchar [ref: - luoghi.Citta, not null]
+  Data date [not null]
+  Immagine varchar [not null]
+}
+
+Table esecuzioni {
+  Brano varchar [pk, not null]
+  Band varchar [pk, not null]
+}
+
+Table luoghi {
+  Citta varchar [pk, not null]
+  Nazione varchar [not null]
+}
+
+Table musicisti {
+  Nome varchar [pk, not null]
+  Cognome varchar [pk, not null]
+  Nascita date [not null]
+  Morte date
+  Band varchar [ref: < band.Nome, not null]
+}
+
+Table scalette {
+  Concerto varchar [pk, not null]
+  Brano varchar [pk, not null, ref: - brani.Nome]
+}
+
+Table strumenti {
+  Nome varchar [pk, not null]
+}
+
+Table suona {
+  Nome_Musicista varchar [pk, not null]
+  Cognome_Musicista varchar [pk, not null]
+  Strumento varchar [pk, not null, ref: - strumenti.Nome]
+}
