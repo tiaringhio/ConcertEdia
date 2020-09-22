@@ -47,7 +47,7 @@ Follows an example of both concerts and bands.
 Find the details about your favorite concert.
 
 <p>
-	<img src="immagini\esempi\band_esempio.png" alt="Concerts">
+	<img src="immagini\esempi\concerto_esempio.png" alt="Concerts">
 	<em>Example of concert.</em>
 </p>
 
@@ -56,7 +56,7 @@ Find the details about your favorite concert.
 Find the details about your favorite band.
 
 <p>
-	<img src="immagini\esempi\concerto_esempio.png" alt="Bands">
+	<img src="immagini\esempi\band_esempio.png" alt="Bands">
 	<em>Example of band.</em>
 </p>
 
@@ -71,7 +71,7 @@ We'crafted a curiosity page so you too can know all the fun facts about your fav
 
 <p>
 	<img src="immagini\esempi\curiosity_esempio.png" alt="Curiosity">
-	<em>Example of band.</em>
+	<em>The curiosity page.</em>
 </p>
 
 ## Dark Mode
@@ -80,7 +80,7 @@ By pressing **+** on your keyboard you will activate **dark mode**, which turns 
 
 <p>
 	<img src="immagini\esempi\dark_mode_esempio.png" alt="Dark Mode">
-	<em>Example of band.</em>
+	<em>Example of dark mode.</em>
 </p>
 
 # Database
@@ -102,13 +102,13 @@ You can re-create the entire db (data included) by using the `.sql` script prese
 
 **SCALETTE**(<ins>Concerto</ins>, <ins>Brano</ins>)
 
-- _Con vincolo di integrità referenziale tra Scalette.Concerto e Concerti.Titolo e Scalette.Brano e Brani.Nome_
+- _Con vincolo di integrità referenziale tra Scalette.Concerto e Concerti.Titolo & Scalette.Brano e Brani.Nome_
 
 **BRANI**(<ins>Nome</ins>, Genere, Durata)
 
 **ESECUZIONI**(<ins>Brano</ins>, <ins>Band</ins>)
 
-- _Con vincolo di integrità referenziale tra Esecuzioni.Brano e Brano.nome e Esecuzioni.Band e Band.Nome_
+- _Con vincolo di integrità referenziale tra Esecuzioni.Brano e Brano.nome & Esecuzioni.Band e Band.Nome_
 
 **BAND**(<ins>Nome</ins>, Genere, Foto, Descrizione)
 
@@ -118,7 +118,7 @@ You can re-create the entire db (data included) by using the `.sql` script prese
 
 **SUONA**(<ins>Nome_Musicista</ins>, <ins>Cognome_Musicista</ins>, <ins>Strumento</ins>)
 
-- _Con vincolo di integrità referenziale tra Suona.Nome_Musicista e Musicisti.Nome e Suona.Cognome_Musicista e Musicisti.Cognome e Suona.Strumento e Strumenti.Nome_
+- _Con vincolo di integrità referenziale tra Suona.Nome_Musicista e Musicisti.Nome & Suona.Cognome_Musicista e Musicisti.Cognome & Suona.Strumento e Strumenti.Nome_
 
 **STRUMENTI**(<ins>Nome</ins>)
 
