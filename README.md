@@ -93,7 +93,7 @@ Here you can find the ER diagram for the entire database.
 
 You can re-create the entire db (data included) by using the `.sql` script present in the `db` folder.
 
-LUOGHI([Città], Nazione)
+LUOGHI(<ins>Città</ins>, Nazione)
 CONCERTI([Titolo], Descrizione, Genere, Spettatori, Link, Città, Data, Immagine)
 Con vincolo di integrità referenziale trà Concerti.Città e Luoghi.Città
 SCALETTE([Concerto], [Brano])
