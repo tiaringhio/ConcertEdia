@@ -43,6 +43,9 @@ include_once("db/db_connect.php");
       <li class="nav-item">
         <a class="nav-link" href="band.php">Band</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Curiosity.php">Curiosità</a>
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0" action="search.php">
       <input class="form-control mr-sm-2" name="varname" type="search" placeholder="Search" aria-label="Search">
