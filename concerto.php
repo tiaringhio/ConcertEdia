@@ -64,26 +64,63 @@ while ($record = mysqli_fetch_assoc($resultset)) {
                         <h2>Band</h2>
                         <ul class="list-group">
                             <?php
-                            $query_musicista = "SELECT DISTINCT CONCAT (musicisti.nome, ' ', musicisti.cognome) AS Nome_Musicista, Strumenti.nome AS Strumento
-                            FROM musicisti, brani, concerti, band, esecuzioni, scalette, strumenti, suona
+                            $queryBand = "SELECT DISTINCT band.nome
+                            FROM  brani, concerti, band, esecuzioni, scalette
+                            WHERE concerti.Titolo = scalette.Concerto AND
+                            scalette.Brano = brani.Nome AND
+                            brani.Nome = esecuzioni.Brano AND
+                            esecuzioni.Band = band.Nome AND
+                            concerti.titolo =  '" . $concerto . "'";
+                            $resultBand = mysqli_query($conn,$queryBand);
+                            while($rowBand = mysqli_fetch_array($resultBand)){
+                                ?> <strong> <?php echo $rowBand['nome'];?> </strong> 
+                                
+                            <?php
+                            $query_musicista = "SELECT DISTINCT musicisti.nome, musicisti.cognome 
+                            FROM musicisti, brani, concerti, band, esecuzioni, scalette
                             WHERE concerti.Titolo = scalette.Concerto AND
                             scalette.Brano = brani.Nome AND
                             brani.Nome = esecuzioni.Brano AND
                             esecuzioni.Band = band.Nome AND
                             musicisti.Band = band.Nome AND
-                            musicisti.Nome = suona.Nome_Musicista AND
-                            musicisti.Cognome = suona.Cognome_Musicista AND
-                            Strumenti.Nome = suona.Strumento and
-                            concerti.Titolo =  '" . $concerto . "'
-                                        ";
+                            band.nome =  '" . $rowBand['nome'] . "'";
+                                        
                             $result_musicista = mysqli_query($conn, $query_musicista);
                             if (!$result_musicista) {
                                 printf("Error: %s\n", mysqli_error($conn));
                                 exit();
                             }
+                            
                             while ($row_musicista = mysqli_fetch_array($result_musicista)) {
-                                echo "<li>" . $row_musicista['Nome_Musicista'] . " - " .  $row_musicista['Strumento'] . "</li>";
+                                 ?>
+                                <div class="mb-4" >
+                                    <?php echo $row_musicista['nome']  . " " . $row_musicista['cognome']  ?>
+                                    
+                
+                                <?php
+                                $queryStrumento = "SELECT distinct strumenti.Nome from strumenti, musicisti, suona
+                                                                WHERE musicisti.Nome = suona.Nome_Musicista AND
+                                                                musicisti.Cognome = suona.Cognome_Musicista AND
+                                                                strumenti.Nome = suona.Strumento AND
+                                                                musicisti.Nome = '" . $row_musicista['nome'] . "' AND
+                                                                musicisti.Cognome = '" . $row_musicista['cognome'] . "'";
+                                $result_strumento = mysqli_query($conn, $queryStrumento);
+                                if (!$result_strumento) {
+                                    printf("Error: %s\n", mysqli_error($conn));
+                                    exit();
+                                }
+                                $concatenazione = " - ";
+                                $counterConc = 0;
+                                while ($row_strumento = mysqli_fetch_array($result_strumento)) {
+                                    if ($counterConc != 0) {
+                                        $concatenazione = " & ";
+                                    }
+                                    echo "<nobr>" . $concatenazione . $row_strumento['Nome']  . "</nobr>";
+                                    $counterConc++;
+                                }
+                                echo"<br>";
                             }
+                        echo "<br>";}
                             ?>
                         </ul>
                     </div>
