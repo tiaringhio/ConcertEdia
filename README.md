@@ -27,7 +27,7 @@
 # About The Project
 
 ConcertEdia is a PHP, Boostrap, CSS and just a little bit of Javascript website that uses SQL queries to show nice to know informations about past concerts, venues and musicians, including photos, dates and fun facts.
-is all you are looking for if you want to relive a historic concert. Let yourself be lulled by the descriptions of the greatest music experts, explore the great stages of the history of music and hear the hits of the past. <br />
+Is all you are looking for if you want to relive a historic concert. Let yourself be lulled by the descriptions of the greatest music experts, explore the great stages of the history of music and hear the hits of the past. <br />
 Let's rock! 🎸
 
 # Features
@@ -36,6 +36,7 @@ You can view the following information:
 
 - **Concerts:** just click on your preferred concert in the carousel found in the `concerti.php` page.
 - **Bands:** just click on you favorite band's card found in the `band.php` page.
+- **Curiosity:** just click on the Navbar's button and see some curiosities about concerts and bands
 
 Follows an example of both concerts and bands.
 
@@ -53,7 +54,7 @@ Find the details about your favorite concert.
 Find the details about your favorite band.
 
 <p>
-	<img src="immagini\esempi\band_esempio.png" alt="Bands">
+	<img src="immagini\esempi\concerto_esempio.png" alt="Bands">
 	<em>Example of band.</em>
 </p>
 
@@ -65,6 +66,10 @@ Just type what you looking for and press `enter`, if the record exists you'll be
 ## Curiosity
 
 We'crafted a curiosity page so you too can know all the fucn facts about your favorite band or concert.
+<p>
+	<img src="immagini\esempi\curiosità_esempio.png" alt="Bands">
+	<em>Curiosity page.</em>
+</p>
 
 <p>
 	<img src="immagini\esempi\curiosity_esempio.png" alt="Curiosity">
