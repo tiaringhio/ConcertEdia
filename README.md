@@ -94,19 +94,19 @@ Here you can find the ER diagram for the entire database.
 You can re-create the entire db (data included) by using the `.sql` script present in the `db` folder.
 
 LUOGHI(<ins>Città</ins>, Nazione)
-CONCERTI([Titolo], Descrizione, Genere, Spettatori, Link, Città, Data, Immagine)
+CONCERTI(<ins>Titolo</ins>, Descrizione, Genere, Spettatori, Link, Città, Data, Immagine)
 Con vincolo di integrità referenziale trà Concerti.Città e Luoghi.Città
-SCALETTE([Concerto], [Brano])
+SCALETTE(<ins>Concerto</ins>, <ins>Brano</ins>)
 Con vincolo di integrità referenziale tra Scalette.Concerto e Concerti.Titolo e Scalette.Brano e Brani.Nome
-BRANI([Nome], Genere, Durata)
-ESECUZIONI([Brano], [Band])
+BRANI(<ins>Nome</ins>, Genere, Durata)
+ESECUZIONI(<ins>Brano</ins>, <ins>Band</ins>)
 Con vincolo di integrità referenziale tra Esecuzioni.Brano e Brano.nome e Esecuzioni.Band e Band.Nome
-BAND([Nome], Genere, Foto, Descrizione)
-MUSICISTI([Nome], [Cognome], Nascita, Morte, Band)
+BAND(<ins>Nome</ins>, Genere, Foto, Descrizione)
+MUSICISTI(<ins>Nome</ins>, </ins>Cognome</ins>, Nascita, Morte, Band)
 Con vincolo di integrità referenziale tra Musicisti.Band e Band.Nome
-SUONA([Nome_Musicista], [Cognome_Musicista], [Strumento])
+SUONA(<ins>Nome_Musicista</ins>, <ins>Cognome_Musicista</ins>, <ins>Strumento</ins>)
 Con vincolo di integrità referenziale tra Suona.Nome_Musicista e Musicisti.Nome e Suona.Cognome_Musicista e Musicisti.Cognome e Suona.Strumento e Strumenti.Nome
-STRUMENTI([Nome])
+STRUMENTI(<ins>Nome</ins>)
 
 # License
 
