@@ -1,4 +1,9 @@
 <?php require_once 'includes/header.php' ?>
+
+<div class="text-center">
+<h1 class="title-main">
+    LO SAPEVI CHE?                    
+</h1>
 <?php
 
 $longConcert = "SELECT concerti.Titolo,SEC_TO_TIME(SUM(TIME_TO_SEC(brani.Durata))) AS duratatot
@@ -13,9 +18,9 @@ brani.Nome = scalette.Brano
 GROUP BY concerti.Titolo)";
 $longConcertResult = mysqli_query($conn, $longConcert);
 if( $row = mysqli_fetch_assoc($longConcertResult)){
-    echo "Lo sapevi che: Il concerto più lungo è stato " . $row['Titolo'] ;
+    echo "<br>Lo sapevi che Il concerto più lungo è stato " . $row['Titolo'] ;
     
-echo " ed è durato " . date('g:i ', strtotime($row['duratatot'])) . " ore.";
+echo " ed è durato " . date('g:i ', strtotime($row['duratatot'])) . " ore";
 echo " INFINITO";
 }
 
@@ -31,8 +36,8 @@ strumenti.Nome = suona.Strumento
 GROUP by musicisti.Nome, musicisti.Cognome)";
 $polystrumResult = mysqli_query($conn,$polystrum);
 while ( $row = mysqli_fetch_assoc($polystrumResult)){
-    echo "<br>";
-    echo "Lo sapevi che ". $row['Nome'] . $row['Cognome'] . " sa suonare: ";
+    echo "<br><br><br>";
+    echo "Lo sapevi che ". $row['Nome'] . " " . $row['Cognome'] . " sa suonare: ";
 
     $strum = "SELECT strumenti.nome FROM strumenti, suona, musicisti
               WHERE musicisti.Nome = suona.Nome_Musicista AND
@@ -54,7 +59,8 @@ AND (2020-YEAR(Nascita)) >= ALL (SELECT (2020-YEAR(Nascita)) AS età FROM musici
 WHERE Morte IS NULL)";
 $oldMusicianResult = mysqli_query($conn, $oldMusician);
 if($row = mysqli_fetch_assoc($oldMusicianResult)){
-    echo " <br>Lo sapevi che il musicistà più anziano è " . $row['nome'] . $row['cognome'];
+    echo "<br><br><br>";
+    echo "Lo sapevi che il musicistà più anziano è " . $row['nome'] . " " . $row['cognome'];
     $band = "SELECT band.nome from band, musicisti WHERE
             musicisti.band = band.nome AND
             musicisti.cognome = '" . $row['cognome'] . "' AND
@@ -71,7 +77,8 @@ AND (YEAR(morte)-YEAR(Nascita)) <= ALL (SELECT (YEAR(morte)-YEAR(Nascita)) AS et
 WHERE Morte IS NOT NULL)";
 $diedMusicianResult = mysqli_query($conn, $diedMusician);
 if($row = mysqli_fetch_assoc($diedMusicianResult)){
-    echo "<br>Lo sapevi che il musicistà morto più giovane è " . $row['nome'] . $row['cognome'];
+    echo "<br><br><br>";
+    echo "Lo sapevi che il musicistà morto più giovane è " . $row['nome'] . " " . $row['cognome'];
     $band = "SELECT band.nome FROM band, musicisti WHERE
             musicisti.band = band.nome AND
             musicisti.cognome = '" . $row['cognome'] . "' AND
@@ -88,8 +95,11 @@ AND concerti.Spettatori >= ALL(SELECT spettatori FROM concerti
 WHERE Spettatori IS NOT NULL)";
 $greatConcertResult = mysqli_query($conn, $greatConcert);
 if( $row = mysqli_fetch_assoc($greatConcertResult)){
-    echo "<br> Lo sapevi che il concerto più visto è stato " . $row['titolo'] . " con " . $row['Spettatori'] . " spettatori JACKPOT";
+    echo "<br><br><br>";
+    echo "Lo sapevi che il concerto più visto è stato " . $row['titolo'] . " con " . $row['Spettatori'] . " spettatori JACKPOT";
 }
 ?>
+
+</div>
 <?php require_once 'includes/footer.php' ?>
 
