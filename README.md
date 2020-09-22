@@ -21,6 +21,8 @@
     - [Curiosity](#curiosity)
     - [Dark Mode](#dark-mode)
   - [Database](#database)
+    - [ER Diagram](#er-diagram)
+    - [Logic Scheme](#logic-scheme)
   - [License](#license)
   - [Contributors](#contributors)
 
@@ -65,11 +67,7 @@ Just type what you looking for and press `enter`, if the record exists you'll be
 
 ## Curiosity
 
-We'crafted a curiosity page so you too can know all the fucn facts about your favorite band or concert.
-<p>
-	<img src="immagini\esempi\curiosità_esempio.png" alt="Bands">
-	<em>Curiosity page.</em>
-</p>
+We'crafted a curiosity page so you too can know all the fun facts about your favorite band or concert.
 
 <p>
 	<img src="immagini\esempi\curiosity_esempio.png" alt="Curiosity">
@@ -87,53 +85,42 @@ By pressing **+** on your keyboard you will activate **dark mode**, which turns 
 
 # Database
 
-Here you can find the ER diagram for the entire database.
+Here you can find the **ER Diagram** and the **Logic Scheme** for the entire database.
+You can re-create the entire db (data included) by using the `.sql` script present in the `db` folder.
+
+## ER Diagram
 
 <img src="./db/Concertedia.png"></img>
 
-You can re-create the entire db (data included) by using the `.sql` script present in the `db` folder.
+## Logic Scheme
 
-LUOGHI(<ins>Città</ins>, Nazione)  
+**LUOGHI**(<ins>Città</ins>, Nazione)
 
+**CONCERTI**(<ins>Titolo</ins>, Descrizione, Genere, Spettatori, Link, Città, Data, Immagine)
 
-CONCERTI(<ins>Titolo</ins>, Descrizione, Genere, Spettatori, Link, Città, Data, Immagine)
+- _Con vincolo di integrità referenziale trà Concerti.Città e Luoghi.Città_
 
+**SCALETTE**(<ins>Concerto</ins>, <ins>Brano</ins>)
 
-Con vincolo di integrità referenziale trà Concerti.Città e Luoghi.Città
+- _Con vincolo di integrità referenziale tra Scalette.Concerto e Concerti.Titolo e Scalette.Brano e Brani.Nome_
 
+**BRANI**(<ins>Nome</ins>, Genere, Durata)
 
-SCALETTE(<ins>Concerto</ins>, <ins>Brano</ins>)
+**ESECUZIONI**(<ins>Brano</ins>, <ins>Band</ins>)
 
+- _Con vincolo di integrità referenziale tra Esecuzioni.Brano e Brano.nome e Esecuzioni.Band e Band.Nome_
 
-Con vincolo di integrità referenziale tra Scalette.Concerto e Concerti.Titolo e Scalette.Brano e Brani.Nome
+**BAND**(<ins>Nome</ins>, Genere, Foto, Descrizione)
 
+**MUSICISTI**(<ins>Nome</ins>, </ins>Cognome</ins>, Nascita, Morte, Band)
 
-BRANI(<ins>Nome</ins>, Genere, Durata)
+- _Con vincolo di integrità referenziale tra Musicisti.Band e Band.Nome_
 
+**SUONA**(<ins>Nome_Musicista</ins>, <ins>Cognome_Musicista</ins>, <ins>Strumento</ins>)
 
-ESECUZIONI(<ins>Brano</ins>, <ins>Band</ins>)
+- _Con vincolo di integrità referenziale tra Suona.Nome_Musicista e Musicisti.Nome e Suona.Cognome_Musicista e Musicisti.Cognome e Suona.Strumento e Strumenti.Nome_
 
-
-Con vincolo di integrità referenziale tra Esecuzioni.Brano e Brano.nome e Esecuzioni.Band e Band.Nome
-
-
-BAND(<ins>Nome</ins>, Genere, Foto, Descrizione)
-
-
-MUSICISTI(<ins>Nome</ins>, </ins>Cognome</ins>, Nascita, Morte, Band)
-
-
-Con vincolo di integrità referenziale tra Musicisti.Band e Band.Nome
-
-
-SUONA(<ins>Nome_Musicista</ins>, <ins>Cognome_Musicista</ins>, <ins>Strumento</ins>)
-
-
-Con vincolo di integrità referenziale tra Suona.Nome_Musicista e Musicisti.Nome e Suona.Cognome_Musicista e Musicisti.Cognome e Suona.Strumento e Strumenti.Nome
-
-
-STRUMENTI(<ins>Nome</ins>)
-
+**STRUMENTI**(<ins>Nome</ins>)
 
 # License
 
