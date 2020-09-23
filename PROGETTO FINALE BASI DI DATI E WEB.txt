@@ -191,9 +191,100 @@ Posta all'interno di un ciclo while recupera tutte le righe del risultato
     Successivamente, attraverso opportune operazioni per accedere al Database,
     verrà mostrato il 'Nome' dello strumento.
 
+     $oldMusician = "SELECT nome, cognome,(2020-YEAR(Nascita)) AS età FROM musicisti
+                        WHERE Morte IS NULL
+                        AND (2020-YEAR(Nascita)) >= ALL (SELECT (2020-YEAR(Nascita)) AS età FROM musicisti
+                        WHERE Morte IS NULL)";
+    Questa query permette di trovare il musicista più anziano.
+    Per ottenerlo occorre verificare che il campo morte sia null, successivamente occorre confrontare 
+    le età di tutti i musicisti.
+    Successivamente, attraverso opportune operazioni per accedere al Database,
+    verrà mostrato il 'Nome', il 'Cognome' e l'età (ricavata dalla query sottraendo a 2020 l'anno di 
+    nascità) del musicista.
 
+     $band = "SELECT band.nome from band, musicisti WHERE
+                musicisti.band = band.nome AND
+                musicisti.cognome = '" . $row['cognome'] . "' AND
+                musicisti.nome = '" . $row['nome'] . "' ";
+    Questa query permette di trovare la band del musicista in questione.
+    Per ottenerla occorre fare un JOIN tra le tabelle musicisti e band.
+    Successivamente occorre verificare che il cognome e il nome del musicista siano uguali ai  
+    valori presenti in $row['nome'] e $row['cognome'].
+    Successivamente, attraverso opportune operazioni per accedere al Database,
+    verrà mostrato il 'Nome' della band.
 
+    $diedMusician = "SELECT nome, cognome,(YEAR(Morte)-YEAR(Nascita)) AS età FROM musicisti
+                        WHERE Morte IS NOT NULL
+                        AND (YEAR(morte)-YEAR(Nascita)) <= ALL (SELECT (YEAR(morte)-YEAR(Nascita)) AS età FROM musicisti
+                        WHERE Morte IS NOT NULL)";
+    Questa query permette di trovare il musicista morto più giovane.
+    Per ottenerlo occorre verificare che il campo morte sia diveso da null, successivamente occorre confrontare 
+    le età di tutti i musicisti morti.
+    Successivamente, attraverso opportune operazioni per accedere al Database,
+    verrà mostrato il 'Nome', il 'Cognome' del musicista.
 
+    $band = "SELECT band.nome FROM band, musicisti WHERE
+                musicisti.band = band.nome AND
+                musicisti.cognome = '" . $row['cognome'] . "' AND
+                musicisti.nome = '" . $row['nome'] . "' ";
+    Questa query permette di trovare la band del musicista in questione.
+    Per ottenerla occorre fare un JOIN tra le tabelle musicisti e band.
+    Successivamente occorre verificare che il cognome e il nome del musicista siano uguali ai  
+    valori presenti in $row['nome'] e $row['cognome'].
+    Successivamente, attraverso opportune operazioni per accedere al Database,
+    verrà mostrato il 'Nome' della band.
 
+    $greatConcert = "SELECT concerti.titolo, concerti.Spettatori FROM concerti
+                        WHERE concerti.spettatori IS NOT NULL 
+                        AND concerti.Spettatori >= ALL(SELECT spettatori FROM concerti 
+                        WHERE Spettatori IS NOT NULL)";
+    Questa query permette di ottenere il titolo e gli spettatori del concerto con più spettatori.
+    Occorre verificare che il campo spettatori non sia nullo.
+    Successivamente, attraverso opportune operazioni per accedere al Database,
+    verrà mostrato il 'Titolo' del concerto e il numero di 'Spettatori'.
 
+5) Search.php
+
+    $sql = "SELECT concerti.titolo
+                FROM concerti
+                WHERE concerti.titolo =  '" . $tosearch . "'" ;
+    Questa query permette di selezionare il concerto aventi titolo uguale alla stringa $tosearch.
+    Successivamente verrà verificato che il risultato restituisca un valore.
+
+            $sql = "SELECT band.nome
+                    FROM band
+                    WHERE band.nome =  '" . $tosearch . "'";
+    Questa query permette di selezionare la band avente nome uguale alla stringa $tosearch.
+    Successivamente verrà verificato che il risultato restituisca un valore.
+
+6) SingolaBand.php
+
+    $sql = "SELECT * FROM band where nome = '" . $_GET['varname'] . "'";
+    Questa query permette di selezionare tra le band quella avente nome pari al valore
+    salvato in $_GET['varname'], determinata dal click su una band nella pagina precedente (band.php).
+    Successivamente, attraverso opportune operazioni per accedere al Database,
+    verrà mostrato il 'Nome', il 'Genere', la 'Foto' e la 'Descrizione' della band.
+
+    $query_musicista = "SELECT DISTINCT musicisti.nome,  musicisti.cognome 
+                            FROM musicisti, band
+                            WHERE musicisti.Band = band.Nome AND
+                            band.nome =  '" . $_GET['varname'] . "'";
+    Questa query permette di ricavare il nome e il cognome dei musicisti appartenenti alla band in 
+    questione.
+    Per ottenerli occorre fare un JOIN tra band e musicisti e verificare che il nome della band
+    sia uguale al valore presente in &_GET['varname'].
+    Successivamente, attraverso opportune operazioni per accedere al Database,
+    verrà mostrato il 'Nome' e il 'Cognome' dei musicisti.
+
+    $queryStrumento = "SELECT distinct strumenti.Nome from strumenti, musicisti, suona
+                        WHERE musicisti.Nome = suona.Nome_Musicista AND
+                        musicisti.Cognome = suona.Cognome_Musicista AND
+                        strumenti.Nome = suona.Strumento AND
+                        musicisti.Nome = '" . $row_musicista['nome'] . "' AND
+                        musicisti.Cognome = '" . $row_musicista['cognome'] . "'";
+    Questa query permette di ricavare lo strumento suonato dal musicista in questione.
+    Per ottenerlo occorre fare un JOIN tra le tabelle musicisti e suona e suona e strumenti e verificare che
+    nome e cognome musicista siano uguali ai valori resenti in $row_musicista['Nome'] e $row_musicista['Cognome'].
+    Successivamente, attraverso opportune operazioni per accedere al Database,
+    verrà mostrato il 'Nome' dello strumento.
 

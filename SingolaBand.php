@@ -41,12 +41,8 @@
                 <div class="paragraph-medium mb-4 text-center">
                     <?php
                     $query_musicista = "SELECT DISTINCT musicisti.nome,  musicisti.cognome 
-                                                FROM musicisti, brani, concerti, band, esecuzioni, scalette
-                                                WHERE concerti.Titolo = scalette.Concerto AND
-                                                scalette.Brano = brani.Nome AND
-                                                brani.Nome = esecuzioni.Brano AND
-                                                esecuzioni.Band = band.Nome AND
-                                                musicisti.Band = band.Nome AND
+                                                FROM musicisti,  band
+                                                WHERE musicisti.Band = band.Nome AND
                                                 band.nome =  '" . $_GET['varname'] . "'";
                     $result_musicista = mysqli_query($conn, $query_musicista);
                     if (!$result_musicista) {
