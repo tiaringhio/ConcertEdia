@@ -50,7 +50,7 @@
                         exit();
                     }
                     $counterSpace = 0;
-                    while ($row_musicista = mysqli_fetch_array($result_musicista)) {
+                    while ($row_musicista = mysqli_fetch_assoc($result_musicista)) {
                         if ($counterSpace != 0) {
                             echo "<br>";
                         }
@@ -73,7 +73,7 @@
                         }
                         $concatenazione = " - ";
                         $counterConc = 0;
-                        while ($row_strumento = mysqli_fetch_array($result_strumento)) {
+                        while ($row_strumento = mysqli_fetch_assoc($result_strumento)) {
                             if ($counterConc != 0) {
                                 $concatenazione = " & ";
                             }

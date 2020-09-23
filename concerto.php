@@ -54,7 +54,7 @@ while ($record = mysqli_fetch_assoc($resultset)) {
                                 $scaletta = "SELECT Brano FROM scalette
                                     WHERE scalette.Concerto = '" . $concerto . "'";
                                 $result = mysqli_query($conn, $scaletta);
-                                while ($row = mysqli_fetch_array($result)) {
+                                while ($row = mysqli_fetch_assoc($result)) {
                                     echo "<li>" . $row['Brano'] . "</li>";
                                 }
                                 ?>
@@ -73,7 +73,7 @@ while ($record = mysqli_fetch_assoc($resultset)) {
                             esecuzioni.Band = band.Nome AND
                             concerti.titolo =  '" . $concerto . "'";
                                 $resultBand = mysqli_query($conn, $queryBand);
-                                while ($rowBand = mysqli_fetch_array($resultBand)) {
+                                while ($rowBand = mysqli_fetch_assoc($resultBand)) {
                                 ?> <strong> <?php echo $rowBand['nome']; ?> </strong>
 
                                     <?php
@@ -92,7 +92,7 @@ while ($record = mysqli_fetch_assoc($resultset)) {
                                         exit();
                                     }
 
-                                    while ($row_musicista = mysqli_fetch_array($result_musicista)) {
+                                    while ($row_musicista = mysqli_fetch_assoc($result_musicista)) {
                                     ?>
                                         <div class="mb-4">
                                             <?php echo $row_musicista['nome']  . " " . $row_musicista['cognome']  ?>
@@ -112,7 +112,7 @@ while ($record = mysqli_fetch_assoc($resultset)) {
                                         }
                                         $concatenazione = " - ";
                                         $counterConc = 0;
-                                        while ($row_strumento = mysqli_fetch_array($result_strumento)) {
+                                        while ($row_strumento = mysqli_fetch_assoc($result_strumento)) {
                                             if ($counterConc != 0) {
                                                 $concatenazione = " & ";
                                             }

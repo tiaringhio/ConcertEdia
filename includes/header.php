@@ -17,6 +17,15 @@ include_once("db/db_connect.php");
   <script src="js/jquery-1.7.1.min.js"></script>
   <script src="js/bootstrap.js"></script>
   <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <script>
+        document.onkeypress = function(e) {
+            e = e || window.event;
+
+            if (e.keyCode === 13) {
+                document.documentElement.classList.toggle('dark-mode');
+            }
+        }
+    </script>
   <title>ConcertEdia</title>
   <link href="./css/style.css" rel="stylesheet" type="text/css">
   <link rel="icon" href=".\immagini\favicon.ico" type="image/ico" sizes="16x16">

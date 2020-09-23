@@ -15,7 +15,7 @@ WHERE concerti.titolo =  '" . $tosearch . "' ";
 
 
 $result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_array($result);
+$row = mysqli_fetch_assoc($result);
 if($row>0){
     include_once 'concerto.php';
        }
@@ -27,7 +27,7 @@ FROM band
 WHERE band.nome =  '" . $tosearch . "'";
 
 $result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_array($result);
+$row = mysqli_fetch_assoc($result);
 if($row>0){
     include_once 'SingolaBand.php';
        }
