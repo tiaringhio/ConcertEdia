@@ -1,0 +1,57 @@
+PROGETTO FINALE BASI DI DATI E WEB
+
+Botti Filippo Matr. 287065
+Ricci Mattia Matr. 285237
+
+CONCERTEDIA
+
+Il sito web ha lo scopo di mostrare i dati di un Database relativo ai concerti che si sono svolti nel passato.
+E' composto da quattro pagine principali: 
+- Una prima pagina "Home" di presentazione del sito, che non mostra
+  alcun dato presente nel Database, ma spiega al visitatore cos'è il sito e chi siamo;
+
+- Una pagina "Concert" che, comunicando con il Database, mostra a scorrimento tutti i concerti presenti,
+  con foto, titolo e data.
+  Lo scorrimento dei concerti può essere effettuato dal visitatore, attraverso gli appositi comandi,
+  altrimenti è automatico ongni sette secondi.
+  Infine, cliccando su ogni concerto si passerà alla pagina specifica del concerto in questione.
+
+- Una pagina "Band" che, comunicando con il Database, mostra tutte le band presenti, con foto e nome della band
+  mostrato solo al passaggio del cursore sopra la foto, con un piacevole effetto visivo. Anche in questo caso,
+  le band sono cliccabili e riportano alla rispettiva pagina specifica.
+
+- Una pagina "Curiosity" che, comunicando con il Database, mostra alcune curiosità riguardo i concerti e 
+  le band, come il concerto più visto o il musicista più anziano. Ogni curiosità è ricavata grazie ad Un
+  interrogazione del Database, complessa o meno a seconda di ciò che si vuole mostrare.
+
+Entrando nello specifico sono poi presenti due successive pagine:
+
+- Una pagina "SingolaBand" che, comunicando con il Database, mostra tutte le informazioni riguardo una band:
+  nome, genere, foto, breve descrizione e la formazione.
+
+- Una pagina "Concerto" che, comunicando con il Database, mostra tutte le informazioni riguardo un concerto:
+  nome, genere, un player di youtube collegato al link presente nel Database, descrizione, scaletta e band
+  che hanno partecipato al concerto, con i loro componenti e gli strumenti da loro suonati.
+
+Ogni pagina sopra elencata comprende un "Header" e un "Footer".
+Per quanto riguarda l'"Header" è mostrata una barra di navigazione per muoversi tra le varie pagine del sito
+e una barra di ricerca attraverso la quale è possibile cercare una band o un concerto specifico. Nel caso
+in cui si cercasse un elemento non presente nel Database si arriverà ad una pagina di errore che
+comunica la mancanza di quel dato e permette di tornare alla home o di effettuare una nuova ricerca.
+Per quanto riguarda il "Footer" è una mini presentazione del sito, con i rispettivi collegamenti alla pagine
+(fittizie, ma implementabili in ogni momenti) Facebook, Twitter e Instagram. E' inoltre presente un collegamento
+alla cartella github del progetto.
+Per quanto riguarda la seconda parte del "Footer" invece sono presenti i contatti e i riferimenti ai profili
+github.
+
+Il sito web è stato sviluppato utilizzando php, html, css e una minima parte di JavaScript.
+Per tutto ciò che riguarda la grafica è stato utilizzato il framework Bootstrap, dal quale sono state
+prese le basi grafiche, successivamente modificate grazie al css.
+Per quanto riguarda la connessione tra sito e Database è stato utilizzato php.
+Per implementare il Database è stato utilizzato PhpMyAdmin, fornito da xampp, così come l'hosting del sito
+in locale.
+La progettazione e la programmazione sono state gestite attraverso la piattaforma GitHub.
+Una descrizione più completa del progetto è presente nel ReadMe presente nella repository GitHub associata
+al progetto.
+Per quanto riguarda il diagramma ER, esso è stato studiato e progettato a mano prima dell'implementazione,
+successivamente è stato riportato graficamente attraverso il tool online ERDPlus.
