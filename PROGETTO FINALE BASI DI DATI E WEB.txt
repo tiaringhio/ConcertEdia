@@ -30,7 +30,7 @@ Entrando nello specifico sono poi presenti due successive pagine:
   nome, genere, foto, breve descrizione e la formazione.
 
 - Una pagina "Concerto" che, comunicando con il Database, mostra tutte le informazioni riguardo un concerto:
-  nome, genere, un player di youtube collegato al link presente nel Database, descrizione, scaletta e band
+  nome, città, un player di youtube collegato al link presente nel Database, descrizione, scaletta e band
   che hanno partecipato al concerto, con i loro componenti e gli strumenti da loro suonati.
 
 Ogni pagina sopra elencata comprende un "Header" e un "Footer".
@@ -55,3 +55,145 @@ Una descrizione più completa del progetto è presente nel ReadMe presente nella
 al progetto.
 Per quanto riguarda il diagramma ER, esso è stato studiato e progettato a mano prima dell'implementazione,
 successivamente è stato riportato graficamente attraverso il tool online ERDPlus.
+
+
+QUERY UTILIZZATE E COMMENTATE
+
+$conn = mysqli_connect($servername, $username, $password, $dbname) or die("Connection failed: " . mysqli_connect_error());
+Permette la connessione ad un server MySQL, le cui specifiche sono inserite nelle variabili $servername, $username, $password, $dbname
+Restituisce un oggetto della classe mysqli.
+
+$result = mysqli_query($conn, $query);
+Permette di interrogare il Database $conn con la query $query scritta precedentemente
+Restituisce una struttura dati di tipo mysqli_result contenente il risultato della query
+
+$record = mysqli_fetch_assoc($resultset)
+Recupera una riga dal risultato come array associativo.
+Posta all'interno di un ciclo while recupera tutte le righe del risultato
+
+1) Band.php
+    $sql = "SELECT * FROM band";
+    Questa interrogazione permette di selezionare ogni valore presente nella tabella band.
+    Successivamente, attraverso opportune operazioni per accedere al Database,
+    verranno mostrati solo i campi 'Nome' e 'Foto'.
+
+2) Concerti.php
+    $sql = "SELECT * FROM concerti";
+    Questa interrogazione permette di selezionare ogni valore presente nella tabella concerti.
+    Successivamente, attraverso opportune operazioni per accedere al Database,
+    verranno mostrati solo i campi 'Titolo', 'Data' e 'Immagine'.
+
+3) Concerto.php
+    $sql = "SELECT * FROM concerti WHERE Titolo = '" . $_GET['varname'] . "'";
+    Questa interrogazione permette di selezionare tra i valori della tabella concerti,
+    il valore avente il titolo uguale alla stringa salvata in $_GET['varname'],
+    determinato dal click su un concerto nella pagina precedente (Concerti.php).
+    Successivamente, attraverso opportune operazioni per accedere al Database,
+    verranno mostrati solo i campi 'Titolo', 'Città', 'Link' e 'Descrizione'.
+
+    $scaletta = "SELECT Brano FROM scalette
+                 WHERE scalette.Concerto = '" . $concerto . "'";
+    Questa query permette di selezionare dalla tabella Scalette tutti i Brani
+    che hanno come valore del campo concerto il titolo del concerto in questione,
+    salvato nella variabile $concerto.
+    Successivamente, attraverso opportune operazioni per accedere al Database,
+    verranno mostrati il nome di ogni brano.
+
+    $queryBand = "SELECT DISTINCT band.nome
+                    FROM  brani, concerti, band, esecuzioni, scalette
+                    WHERE concerti.Titolo = scalette.Concerto AND
+                    scalette.Brano = brani.Nome AND
+                    brani.Nome = esecuzioni.Brano AND
+                    esecuzioni.Band = band.Nome AND
+                    concerti.titolo =  '" . $concerto . "'";
+    Questa query permette di selezionare tutte le band che hanno partecipato al concerto 
+    in questione, salvato nella variabile concerto.
+    Per ottenerle occorre fare un JOIN tra le tabelle concerti e scalette, scalette e brani,
+    brani ed esecuzioni, esecuzioni e concerti.
+    Successivamente, attraverso opportune operazioni per accedere al Database,
+    verranno mostrati il nome di ogni band.
+
+    $query_musicista = "SELECT DISTINCT musicisti.nome, musicisti.cognome 
+                            FROM musicisti, brani, concerti, band, esecuzioni, scalette
+                            WHERE concerti.Titolo = scalette.Concerto AND
+                            scalette.Brano = brani.Nome AND
+                            brani.Nome = esecuzioni.Brano AND
+                            esecuzioni.Band = band.Nome AND
+                            musicisti.Band = band.Nome AND
+                            band.nome =  '" . $rowBand['nome'] . "'";
+    Questa query permete di selezionare tutti i musicisti che fanno parte della band in questione,
+    accessibile nella $rowBand['nome'].
+    Per poterlo ottenere occcorre fare un JOIN tra le tabelle concerti e scalette,
+    scalette e brani, brani e esecuzioni, esecuzioni e band, band e musicisti.
+    Successivamente, attraverso opportune operazioni per accedere al Database,
+    verranno mostrati il 'Nome' e il 'Cognome' di ogni musicista.
+
+    $queryStrumento = "SELECT distinct strumenti.Nome from strumenti, musicisti, suona
+                        WHERE musicisti.Nome = suona.Nome_Musicista AND
+                        musicisti.Cognome = suona.Cognome_Musicista AND
+                        strumenti.Nome = suona.Strumento AND
+                        musicisti.Nome = '" . $row_musicista['nome'] . "' AND
+                        musicisti.Cognome = '" . $row_musicista['cognome'] . "'";
+    Questa query permette di selezionare gli strumenti suonati dal musicista in questione,
+    accessibile nella variabile $row_musicista['nome'] e $row_musicista['conome']
+    Per poterlo ottenere occorre fare un JOIN tra le tabelle musicisti e suona, suona e strumenti.
+    Successivamente, attraverso opportune operazioni per accedere al Database,
+    verranno mostrati il 'Nome' dello strumento.
+
+
+4) Curiosity.php
+
+     $longConcert = "SELECT concerti.Titolo,SEC_TO_TIME(SUM(TIME_TO_SEC(brani.Durata))) AS duratatot
+                        FROM concerti,scalette,brani
+                        WHERE concerti.Titolo = scalette.Concerto AND
+                        brani.Nome = scalette.Brano
+                        GROUP BY concerti.Titolo
+                        HAVING duratatot >ALL (SELECT SEC_TO_TIME(SUM(TIME_TO_SEC(brani.Durata))) AS duratatot
+                        FROM concerti,scalette,brani
+                        WHERE concerti.Titolo = scalette.Concerto AND
+                        brani.Nome = scalette.Brano
+                        GROUP BY concerti.Titolo)";
+    Questa query permette di ottenere il titolo del concerto più lungo.
+    Per ottenerlo occorre fare un JOIN tra le tabelle concerti e scalette, scalette e brani.
+    E' ottenuto tramite un raggruppamento, infatti vengono sommate le durate di ogni brano, raggruppandole
+    in base al concerto a cui appartengono.
+    Successivamente attraverso la clauola HAVING si cerca tra tutte le durate quale sia quella maggiore
+    Successivamente, attraverso opportune operazioni per accedere al Database,
+    verrà mostrato il 'Titolo' del concerto.
+
+    $polystrum = "SELECT musicisti.Nome, musicisti.Cognome, count(*) AS numerostrum FROM musicisti, suona, strumenti
+                    WHERE musicisti.Nome = suona.Nome_Musicista AND
+                    musicisti.Cognome = suona.Cognome_Musicista AND
+                    strumenti.Nome = suona.Strumento
+                    GROUP by musicisti.Nome, musicisti.Cognome
+                    HAVING count(*) >= ALL (SELECT count(*) from musicisti, suona, strumenti
+                    WHERE musicisti.Nome = suona.Nome_Musicista AND
+                    musicisti.Cognome = suona.Cognome_Musicista AND
+                    strumenti.Nome = suona.Strumento
+                    GROUP by musicisti.Nome, musicisti.Cognome)";
+    Questa query permette di trovare i musicisti che suonano il maggior numero di strumenti.
+    Per ottenerli occorre fare un JOIN tra le tabelle musicisti e suona, suona e strumenti.
+    Il conteggio è ottenuto raggruppando il numero di strumenti suonati per ogni musicista.
+    Successivamente attraverso la clausola HAVING si cerca tra tutti i musicisti quelli
+    con il numero maggiore.
+    Successivamente, attraverso opportune operazioni per accedere al Database,
+    verrà mostrato il 'Nome' e il 'Cognome' del musicista.
+
+     $strum = "SELECT strumenti.nome FROM strumenti, suona, musicisti
+                WHERE musicisti.Nome = suona.Nome_Musicista AND
+                musicisti.Cognome = suona.Cognome_Musicista AND
+                strumenti.Nome = suona.Strumento AND
+                musicisti.nome = '" . $row['Nome'] . "' AND
+                musicisti.cognome = '" . $row['Cognome'] . "' ";
+    Questa query permette di trovare il nome degli strumenti suonati dal musicista in questione,
+    accessibile in $row['Nome'] e $row['cognome'].
+    Per ottenerlo è necessario un JOIN tra musicisti e suona, suona e strumenti.
+    Successivamente, attraverso opportune operazioni per accedere al Database,
+    verrà mostrato il 'Nome' dello strumento.
+
+
+
+
+
+
+
