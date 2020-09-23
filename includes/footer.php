@@ -26,10 +26,7 @@
                     Cerca il tuo concerto preferito, guarda il video e immergiti nella descrizione.
                 </p>
                 <div class="social">
-                    <a href="#"> <i class="fa fa-facebook"></i></a>&nbsp;
-                    <a href="#"> <i class="fa fa-twitter"></i></a>&nbsp;
-                    <a href="#"> <i class="fa fa-instagram"></i></a>&nbsp;
-                    <a href="https://github.com/tiaringhio/Concert"> <i class="fa fa-github"></i></a>
+                    <a href="https://github.com/tiaringhio/ConcertEdia"> <i class="fa fa-github"></i></a>
                 </div>
             </div>
             <div class="col-md-6">

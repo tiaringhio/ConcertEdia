@@ -199,6 +199,10 @@ div.card:hover span {
   display: block;
 }
 
+.test {
+  text-align: center;
+}
+
 #profileimg {
   border-radius: 50%;
   width: 200px;
