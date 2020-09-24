@@ -8,6 +8,9 @@
     PHP, Bootstrap, CSS and SQL website that shows info about past concerts, venues and musicians. <br />
     Created for a course at University of Parma.
   </p>
+  <p align="center">
+    <a href="https://concertedia.mattiaricci.it/" target="_blank" align="center">Live Demo</a>
+  </p>
   
   <!-- TABLE OF CONTENTS -->
   # Table of Contents
